@@ -1,7 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Terminal from "@/components/Terminal";
 
-export default function About() {
+export const metadata = {
+  title: "About Page",
+  description: "About page of the application",
+};
+
+export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

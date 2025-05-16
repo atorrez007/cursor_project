@@ -1,7 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Terminal from "@/components/Terminal";
 
-export default function Search() {
+export const metadata = {
+  title: "Search Page",
+  description: "Search page of the application",
+};
+
+export default function SearchPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
