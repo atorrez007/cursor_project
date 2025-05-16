@@ -8,6 +8,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +28,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`px-4 py-2 rounded-md transition-colors ${
-                pathname === "/"
+                isActive("/")
                   ? "bg-gray-100 text-gray-900"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
@@ -34,7 +38,7 @@ export default function Navbar() {
             <Link
               href="/search"
               className={`px-4 py-2 rounded-md transition-colors ${
-                pathname === "/search"
+                isActive("/search")
                   ? "bg-gray-100 text-gray-900"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
@@ -44,7 +48,7 @@ export default function Navbar() {
             <Link
               href="/about"
               className={`px-4 py-2 rounded-md transition-colors ${
-                pathname === "/about"
+                isActive("/about")
                   ? "bg-gray-100 text-gray-900"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
@@ -110,7 +114,7 @@ export default function Navbar() {
           <Link
             href="/"
             className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
-              pathname === "/"
+              isActive("/")
                 ? "bg-gray-100 text-gray-900"
                 : "text-gray-700 hover:bg-gray-100"
             }`}
@@ -121,7 +125,7 @@ export default function Navbar() {
           <Link
             href="/search"
             className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
-              pathname === "/search"
+              isActive("/search")
                 ? "bg-gray-100 text-gray-900"
                 : "text-gray-700 hover:bg-gray-100"
             }`}
@@ -132,7 +136,7 @@ export default function Navbar() {
           <Link
             href="/about"
             className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
-              pathname === "/about"
+              isActive("/about")
                 ? "bg-gray-100 text-gray-900"
                 : "text-gray-700 hover:bg-gray-100"
             }`}
