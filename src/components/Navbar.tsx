@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="bg-white shadow-md">
@@ -21,19 +23,31 @@ export default function Navbar() {
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
             <Link
               href="/"
-              className="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              className={`px-4 py-2 rounded-md transition-colors ${
+                pathname === "/"
+                  ? "bg-gray-100 text-gray-900"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/search"
-              className="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              className={`px-4 py-2 rounded-md transition-colors ${
+                pathname === "/search"
+                  ? "bg-gray-100 text-gray-900"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
             >
               Search
             </Link>
             <Link
               href="/about"
-              className="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              className={`px-4 py-2 rounded-md transition-colors ${
+                pathname === "/about"
+                  ? "bg-gray-100 text-gray-900"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
             >
               About Us
             </Link>
@@ -95,10 +109,10 @@ export default function Navbar() {
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link
             href="/"
-            className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transform transition-all duration-300 ${
-              isOpen
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-full opacity-0"
+            className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
+              pathname === "/"
+                ? "bg-gray-100 text-gray-900"
+                : "text-gray-700 hover:bg-gray-100"
             }`}
             onClick={() => setIsOpen(false)}
           >
@@ -106,10 +120,10 @@ export default function Navbar() {
           </Link>
           <Link
             href="/search"
-            className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transform transition-all duration-300 delay-75 ${
-              isOpen
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-full opacity-0"
+            className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
+              pathname === "/search"
+                ? "bg-gray-100 text-gray-900"
+                : "text-gray-700 hover:bg-gray-100"
             }`}
             onClick={() => setIsOpen(false)}
           >
@@ -117,10 +131,10 @@ export default function Navbar() {
           </Link>
           <Link
             href="/about"
-            className={`block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transform transition-all duration-300 delay-150 ${
-              isOpen
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-full opacity-0"
+            className={`block px-3 py-2 rounded-md text-base font-medium transform transition-all duration-300 ${
+              pathname === "/about"
+                ? "bg-gray-100 text-gray-900"
+                : "text-gray-700 hover:bg-gray-100"
             }`}
             onClick={() => setIsOpen(false)}
           >
